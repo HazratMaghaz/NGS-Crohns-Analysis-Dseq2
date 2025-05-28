@@ -8,28 +8,8 @@ This repository contains the full workflow and analysis of a bioinformatics proj
 
 - **Course Title:** Next Generation Sequencing  
 - **Instructor:** Dr. Masood Ur Rehman Kayani  
-- **Student:** Hazrat Maghaz  
-- **Submitted on:** December 8, 2024
-
-## 📁 Project Structure
-
-📦ngs-crohns-analysis/
-├── 📄 NGS_Project_Report_HazratMaghaz.pdf # Final project report
-├── 📂 code/ # R scripts used for analysis
-├── 📂 figures/ # All plots and visualizations
-│ ├── heatmap.png
-│ ├── pca_plot.png
-│ ├── deg_plot.png
-│ ├── volcano_plot.png
-│ ├── bubble_plot.png
-│ └── gsea_plots/
-│ ├── pathway1.png
-│ ├── pathway2.png
-│ └── ...
-
-
----
-
+- **Student:** Hazrat Maghaz
+- 
 ## 🔬 Analysis Pipeline
 
 ### 1. **Dataset Overview**
