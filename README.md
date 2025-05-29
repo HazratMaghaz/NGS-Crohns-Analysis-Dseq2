@@ -9,7 +9,7 @@ This repository contains the full workflow and analysis of a bioinformatics proj
 - **Course Title:** Next Generation Sequencing  
 - **Instructor:** Dr. Masood Ur Rehman Kayani  
 - **Student:** Hazrat Maghaz
-- 
+  
 ## 🔬 Analysis Pipeline
 
 ### 1. **Dataset Overview**
