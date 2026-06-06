@@ -1,89 +1,136 @@
-# NGS-Crohns-Analysis-Dseq2
-A comprehensive analysis of differential gene expression in Crohn’s Disease using RNA-seq data, DESeq2, and GSEA in R.
-# Differential Gene Expression Analysis of Crohn’s Disease using RNA-seq
+# RNA-seq Differential Expression Analysis of Crohn's Disease using DESeq2 and GSEA
 
-This repository contains the full workflow and analysis of a bioinformatics project conducted as part of the *Next Generation Sequencing* course at **NUST – School of Interdisciplinary Engineering and Sciences (SINES)**. The goal was to identify differentially expressed genes (DEGs) in **Crohn’s Disease (CD)** using RNA-seq count data from pediatric ileal biopsy samples and perform downstream analysis, including visualization and gene set enrichment analysis (GSEA).
+This repository contains a reproducible RNA-seq differential expression analysis workflow for Crohn's Disease using **R**, **DESeq2**, and **gene set enrichment analysis (GSEA)**.
 
-## 🧬 Project Overview
-
-- **Course Title:** Next Generation Sequencing  
-- **Instructor:** Dr. Masood Ur Rehman Kayani  
-- **Student:** Hazrat Maghaz
-  
-## 🔬 Analysis Pipeline
-
-### 1. **Dataset Overview**
-- **Total samples:** 304  
-  - 254 CD (Crohn’s Disease) samples  
-  - 50 control (non-IBD) samples  
-- **Source:** Pediatric ileal biopsies  
-- **Data format:** RNA-seq raw count matrix (genes × samples)
-
-### 2. **Correlation Heatmap**
-- Created using Manhattan distance to visualize pairwise similarity.
-- Darker blocks = more similar samples; lighter blocks = more different.
-
-### 3. **Principal Component Analysis (PCA)**
-- Showed clear separation between CD and control groups.
-- PC1 and PC2 together explained 58% of data variance.
-
-### 4. **DESeq2 Differential Expression Analysis**
-- **Tool:** DESeq2 package in R.
-- **Filtering threshold:** FDR < 0.05
-- **Total genes analyzed:** 65,218  
-  - Significant DEGs: 11,613  
-    - Upregulated: 5,352 (46.08%)  
-    - Downregulated: 6,261 (53.91%)
-
-### 5. **Visualization of DEGs**
-- **Volcano Plot:** Highlights logFC vs adjusted p-values.
-- **Bubble Plot:** Top significant gene with p-value = 3.53e-71 and padj = 1.12e-66.
-
-### 6. **Gene Set Enrichment Analysis (GSEA)**
-- **Gene sets used:** HALLMARK from MSigDB
-- **Result:**  
-  - 19 pathways significantly positively enriched  
-  - 3 positively enriched but not significant  
-  - 1 pathway negatively enriched (e.g., oxidative phosphorylation)
+The aim of this project is to identify differentially expressed genes between Crohn's Disease and control samples, visualize expression patterns, and interpret pathway-level biological signals using Hallmark gene sets.
 
 ---
 
-## 📊 Key Figures
+## Project Overview
 
-- Heatmap of all 304 samples.
-- PCA plot showing case/control clustering.
-- DEG volcano plot and top gene bubble plot.
-- GSEA enrichment plots (top positively and negatively enriched pathways).
-
----
-
-## 💻 Technologies Used
-
-- **R**  
-- **RStudio**  
-- **DESeq2**  
-- **ggplot2**  
-- **clusterProfiler (for GSEA)**
+- **Disease context:** Crohn's Disease
+- **Sample type:** Pediatric ileal biopsy RNA-seq count data
+- **Total samples:** 304
+  - 254 Crohn's Disease samples
+  - 50 non-IBD control samples
+- **Main analysis:** Differential expression analysis using DESeq2
+- **Downstream analysis:** PCA, heatmap, volcano plot, and Hallmark GSEA
 
 ---
 
-## 🧠 Learning Outcomes
+## Repository Structure
 
-- Hands-on experience with RNA-seq analysis pipeline.
-- Mastery of DESeq2 for identifying DEGs.
-- GSEA interpretation using real disease-related data.
-- Bioinformatics visualization and critical result interpretation.
+```text
+.
+├── data/
+│   ├── Counts.tsv
+│   └── Metadata.tsv
+├── scripts/
+│   └── analysis_pipeline.R
+├── results/
+│   ├── figures/
+│   └── tables/
+├── docs/
+│   └── project_notes.md
+├── README.md
+├── LICENSE
+└── .gitignore
+```
 
 ---
 
-## 📜 License
+## Analysis Workflow
 
-This project is academic coursework and is not licensed for commercial use.
+1. Load RNA-seq count matrix and sample metadata.
+2. Prepare the DESeq2 dataset using sample group information.
+3. Normalize count data and apply variance-stabilizing transformation.
+4. Explore sample-level patterns using PCA and heatmap visualization.
+5. Run differential expression analysis using DESeq2.
+6. Export DEG result tables.
+7. Generate volcano plot for significant gene expression changes.
+8. Perform Hallmark gene set enrichment analysis for pathway-level interpretation.
 
 ---
 
-## 📩 Contact
+## Reported Results
 
-For questions or collaboration, contact: **Hazrat Maghaz** – https://raw.githubusercontent.com/HazratMaghaz/NGS-Crohns-Analysis-Dseq2/main/squitch/NG_Crohns_Dseq_Analysis_v1.0.zip
+Using an adjusted p-value / FDR threshold of 0.05:
 
+- **Total genes analyzed:** 65,218
+- **Significant DEGs:** 11,613
+- **Upregulated genes:** 5,352
+- **Downregulated genes:** 6,261
 
+---
+
+## Key Outputs
+
+| Output | Description |
+|---|---|
+| `results/figures/Heatmap.png` | Sample-to-sample distance heatmap |
+| `results/figures/PCA_plot.png` | PCA plot for disease/control separation |
+| `results/figures/Volcano_plot.png` | Volcano plot of DESeq2 differential expression results |
+| `results/figures/Hallmark_plot.png` | Hallmark GSEA visualization |
+| `results/tables/` | Generated DEG and enrichment result tables |
+
+---
+
+## Tools and Packages
+
+- R
+- DESeq2
+- tidyverse
+- ggplot2
+- pheatmap
+- EnhancedVolcano
+- clusterProfiler
+- msigdbr
+- RColorBrewer
+
+---
+
+## How to Run
+
+Clone the repository:
+
+```bash
+git clone https://github.com/HazratMaghaz/NGS-Crohns-Analysis-Dseq2.git
+cd NGS-Crohns-Analysis-Dseq2
+```
+
+Run the analysis script from the repository root:
+
+```r
+source("scripts/analysis_pipeline.R")
+```
+
+The script uses relative paths, so it should be executed from the main repository directory.
+
+---
+
+## Skills Demonstrated
+
+- RNA-seq count matrix handling
+- Metadata-based experimental design
+- Differential expression analysis using DESeq2
+- PCA and heatmap-based sample exploration
+- Volcano plot visualization
+- Hallmark pathway enrichment analysis
+- Reproducible project organization in R
+
+---
+
+## Author
+
+**Hazrat Maghaz**  
+Bioinformatician | Computational Biologist  
+
+- Website: https://hazratmaghaz.tech
+- GitHub: https://github.com/HazratMaghaz
+- LinkedIn: https://www.linkedin.com/in/hazrat-maghaz-6967b9374/
+
+---
+
+## License
+
+This repository is available under the MIT License. See the `LICENSE` file for details.
